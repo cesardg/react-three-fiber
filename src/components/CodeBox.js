@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { Html } from '@react-three/drei';
 
-const CodeBox = ({position, img, color}) => {
+const CodeBox = ({position, color, mainText, subText}) => {
 
   const ref = useRef()
   const [hovered, setHover] = useState(false)
@@ -17,11 +17,11 @@ const CodeBox = ({position, img, color}) => {
       onPointerOver={(e) => setHover(true)}
       onPointerOut={(e) => setHover(false)}>
       <boxGeometry args={[3, .5, .5]} />
-      <meshStandardMaterial color={hovered ? color : 'white'} />
-      <Html  className="content"  rotation-z={Math.PI} rotation-y={Math.PI}  rotation-x={Math.PI} position={[0, 0, (.5/2)+ 0.001]} transform occlude>
-          <div  className="wrapper">
+      <meshStandardMaterial color={color} />
+      <Html  className="content code-content"  rotation-z={Math.PI} rotation-y={Math.PI}  rotation-x={Math.PI} position={[0, 0, (.5/2)+ 0.001]} transform occlude>
+          <div  className="wrapper code-wrapper">
            
-    <p>nice</p>
+    <p>{`< ${mainText}/>`}<span>{subText}</span></p>
           </div>
         </Html>
     </mesh>

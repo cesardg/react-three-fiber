@@ -74,8 +74,11 @@ function Slides () {
          {/* <Text3D position={[0, 0, 0]} texture={"lava"}/>*/ }
           <Text position={[12, 0, 0]}/>
           <ColorBox position={[14, 0, 0]} img={slide7left} color={'green'}/>
-          <CodeBox position={[12, -6, 0]} color={'green'}/>
-          <Sky scale={1000} sunPosition={[500, 150, -1000]} turbidity={0.1} />
+          <CodeBox position={[12, -6, 0]} color={'blue'} mainText={"Canvas"} subText={"(component)"}/>
+          <CodeBox position={[12, -6.6, 0]} color={'blue'} mainText={"mesh"} subText={"(native JSX element)"}/>
+          <CodeBox position={[12, -7.2, 0]} color={'blue'} mainText={"BoxGeometrie"} subText={""}/>
+          <CodeBox position={[12, -7.8, 0]} color={'blue'} mainText={"meshStandardMaterial"} subText={""}/>
+          <Sky scale={1000} sunPosition={[500, 150, -1000]} turbidity={0} />
           <OrbitControls />
       </Suspense>
     </Canvas>

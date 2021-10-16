@@ -76,8 +76,14 @@
   align-content: center;
   justify-content: center;
   align-items: center;
-
 }
 
+.code-wrapper{
+    color: white;
+}
+
+.code-content{
+    width: 10rem;
+}
 
 
