@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@compai/font-a-bee-zee": "^0.0.2",
+    "@compai/font-basic": "^0.0.2",
+    "@compai/font-inter": "0.0.1",
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",
     "@mui/material": "^5.0.4",
@@ -17,6 +20,7 @@
     "react-scripts": "4.0.3",
     "react-spring": "^9.3.0",
     "three": "^0.133.1",
+    "troika-three-text": "^0.43.0",
     "web-vitals": "^1.0.1"
   },
   "scripts": {

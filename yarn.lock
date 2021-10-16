@@ -1161,6 +1161,21 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
+"@compai/font-a-bee-zee@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@compai/font-a-bee-zee/-/font-a-bee-zee-0.0.2.tgz#7a205397561b20fecf929deb79b98f8405afbe75"
+  integrity sha512-7iJmmamja/WY7PSXIntXiAnmY4PDbqkxuQlEX4QYRZ/XywcPJ1x6BVlDX6R91HbkAaZVONfUG3RlGSodzl29Tg==
+
+"@compai/font-basic@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@compai/font-basic/-/font-basic-0.0.2.tgz#aca0ad1bf79cf849629afdc1d6aa77b01e7c179b"
+  integrity sha512-BkGFZAX0Z5IpW8Umi4fF0XQ/6NvhrRyVFlME6VU8+XXqU9u4Geek/Qa4G6yhsvXJOwEUjh7T7OLqeLGnH62Sfg==
+
+"@compai/font-inter@0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@compai/font-inter/-/font-inter-0.0.1.tgz#eb2adf8b7e5fd62092be4632484b204be08aafb7"
+  integrity sha512-JUwrEn0IwmGNhgA42q4LGih/j1P6xexyvF1HeRlFfAHDNbf6eGjxSIpD1/yCtkLSkk39YiFawTFnJBHzgOuqmA==
+
 "@csstools/convert-colors@^1.4.0":
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
@@ -11247,15 +11262,34 @@ troika-three-text@^0.42.0:
     troika-three-utils "^0.42.0"
     troika-worker-utils "^0.42.0"
 
+troika-three-text@^0.43.0:
+  version "0.43.0"
+  resolved "https://registry.yarnpkg.com/troika-three-text/-/troika-three-text-0.43.0.tgz#7f221f0a20f64d761f8f37496c8d10e165b63592"
+  integrity sha512-lZcTImvd5VkrZGA1qQx8zRs20Eel5Ue4ZpxnHtvgpGHi+lJemNIpkwtGOgk73DmLAkBm6it3nG5RCE5IxufqCg==
+  dependencies:
+    bidi-js "^1.0.2"
+    troika-three-utils "^0.43.0"
+    troika-worker-utils "^0.43.0"
+
 troika-three-utils@^0.42.0:
   version "0.42.0"
   resolved "https://registry.yarnpkg.com/troika-three-utils/-/troika-three-utils-0.42.0.tgz#01624fb8b2b9e8ea007985868fa1bcdaed0819ef"
   integrity sha512-IimGItKTN4PxeXEL4uWSF20kHZU1J1jXHD0gYQflX3QOFSven7HBG7nEqHcWavbZkB3AeRfR6NB3294GIt3uGA==
 
+troika-three-utils@^0.43.0:
+  version "0.43.0"
+  resolved "https://registry.yarnpkg.com/troika-three-utils/-/troika-three-utils-0.43.0.tgz#ffa1b7afd6774eff3ab717997eec888765473b24"
+  integrity sha512-UVc4jOob1VjrX0awA0dHxmHZ8yvgq8W/kmtihMnMeObm0HNOobPKAWm/N6o34/k/FPgOtUMDHYgkw+TG2RNouA==
+
 troika-worker-utils@^0.42.0:
   version "0.42.0"
   resolved "https://registry.yarnpkg.com/troika-worker-utils/-/troika-worker-utils-0.42.0.tgz#473004a65b8e6d1bed89f0384394712a526363c3"
   integrity sha512-eTfX/vBNC7zMD+sSIDzbQAVwbhotbCz71IimZe0rFqPvAXkvLpKfH2YcWd1Ho42PII1O9Gl4QxxTV8ulRmDilQ==
+
+troika-worker-utils@^0.43.0:
+  version "0.43.0"
+  resolved "https://registry.yarnpkg.com/troika-worker-utils/-/troika-worker-utils-0.43.0.tgz#f24bbf3d7d25f87f72150b37bf35fa105f7160bd"
+  integrity sha512-8YXWwfviJ1N/9+nuE5dT9RFttmDsIF8CP7d6rRsBBhH55il3fBqpFSuzTlOcdgC1yq8Hmhi6GgIl6eK4Zt+hTw==
 
 tryer@^1.0.1:
   version "1.0.1"

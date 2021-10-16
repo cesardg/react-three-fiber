@@ -1,13 +1,17 @@
 import {Canvas} from '@react-three/fiber'
-import {OrbitControls} from '@react-three/drei'
-import React, {useState, useEffect}  from 'react'
+import {OrbitControls, PerspectiveCamera, Sky} from '@react-three/drei'
+import React, {useState, useEffect, Suspense}  from 'react'
 import { useSpring } from '@react-spring/core'
+
 import HtmlBox from "../components/HtmlBox";
 import ColorBox from "../components/ColorBox";
-import { PerspectiveCamera} from '@react-three/drei'
+import CodeBox from "../components/CodeBox";
+import Text3D from "../components/Text3D";
+import Text from "../components/Text";
 
 import slide7left from '../assets/deck2/Slide7-1.png';
 import slide7right from '../assets/deck2/Slide7-2.png';
+
 
 function Slides () {
 
@@ -59,15 +63,21 @@ function Slides () {
         <p className="slideNr">Slide: <span>{index + 1}</span>/6</p>
       </div>
      <Canvas>
-      <PerspectiveCamera position={[0, 0, 7]} makeDefault={true} />
-      <ambientLight intensity={0.5} />
-      <spotLight position={[zoom, zoom, 10]} angle={0.15} penumbra={1} />
-      <pointLight position={[-10, -10, -10]} />
-      <pointLight position={[20, 0, 20]} intensity={0.6}  />
-      <HtmlBox position={[0, 0, 0]}  rotationy={rotationY}  rotationx={rotationX}  rotationz={rotationZ}  color={color} onChangeColor={(value) => setColor(value)} zoom={zoom} onChangeSlider={(value) => setZoom(value)} />
-      <ColorBox position={[10, 0, 0]} img={slide7right} color={'red'}/>
-      <ColorBox position={[14, 0, 0]} img={slide7left} color={'green'}/>
-      <OrbitControls />
+        <Suspense fallback={null}>
+          <PerspectiveCamera position={[0, 0, 7]} makeDefault={true} />
+          <ambientLight intensity={0.5} />
+          <spotLight position={[zoom, zoom, 10]} angle={0.15} penumbra={1} />
+          <pointLight position={[-10, -10, -10]} />
+          <pointLight position={[20, 0, 20]} intensity={0.6}  />
+          <HtmlBox position={[0, 0, 0]}  rotationy={rotationY}  rotationx={rotationX}  rotationz={rotationZ}  color={color} onChangeColor={(value) => setColor(value)} zoom={zoom} onChangeSlider={(value) => setZoom(value)} />
+          <ColorBox position={[10, 0, 0]} img={slide7right} color={'red'}/>
+         {/* <Text3D position={[0, 0, 0]} texture={"lava"}/>*/ }
+          <Text position={[12, 0, 0]}/>
+          <ColorBox position={[14, 0, 0]} img={slide7left} color={'green'}/>
+          <CodeBox position={[12, -6, 0]} color={'green'}/>
+          <Sky scale={1000} sunPosition={[500, 150, -1000]} turbidity={0.1} />
+          <OrbitControls />
+      </Suspense>
     </Canvas>
     </>
   );
