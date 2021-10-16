@@ -1,5 +1,5 @@
 import {Canvas} from '@react-three/fiber'
-import {OrbitControls, PerspectiveCamera, Sky} from '@react-three/drei'
+import {OrbitControls, PerspectiveCamera, Sky, Stars} from '@react-three/drei'
 import React, {useState, useEffect, Suspense}  from 'react'
 import { useSpring } from '@react-spring/core'
 
@@ -59,9 +59,11 @@ function Slides () {
 
   return (
     <>
+    {/*
       <div className="controlls">
         <p className="slideNr">Slide: <span>{index + 1}</span>/6</p>
       </div>
+      */ }
      <Canvas>
         <Suspense fallback={null}>
           <PerspectiveCamera position={[0, 0, 7]} makeDefault={true} />
@@ -76,9 +78,10 @@ function Slides () {
           <ColorBox position={[14, 0, 0]} img={slide7left} color={'green'}/>
           <CodeBox position={[12, -6, 0]} color={'blue'} mainText={"Canvas"} subText={"(component)"}/>
           <CodeBox position={[12, -6.6, 0]} color={'blue'} mainText={"mesh"} subText={"(native JSX element)"}/>
-          <CodeBox position={[12, -7.2, 0]} color={'blue'} mainText={"BoxGeometrie"} subText={""}/>
-          <CodeBox position={[12, -7.8, 0]} color={'blue'} mainText={"meshStandardMaterial"} subText={""}/>
+          <CodeBox position={[12, -7.5, 0]} color={'blue'} mainText={"boxGeometrie"} subText={""}/>
+          <CodeBox position={[12, -8.1, 0]} color={'blue'} mainText={"meshStandardMaterial"} subText={""}/>
           <Sky scale={1000} sunPosition={[500, 150, -1000]} turbidity={0} />
+          <Stars radius={50} depth={5}  count={5000}  factor={6}  saturation={0} fade />
           <OrbitControls />
       </Suspense>
     </Canvas>
