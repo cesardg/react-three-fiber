@@ -6,7 +6,7 @@ import { useSpring } from '@react-spring/core'
 import HtmlBox from "../components/HtmlBox";
 import ColorBox from "../components/ColorBox";
 import CodeBox from "../components/CodeBox";
-import Text3D from "../components/Text3D";
+//import Text3D from "../components/Text3D";
 import Text from "../components/Text";
 
 import slide7left from '../assets/deck2/Slide7-1.png';
