@@ -1,16 +1,20 @@
-import {Canvas} from '@react-three/fiber'
+import {Canvas, useThree} from '@react-three/fiber'
 import {OrbitControls, PerspectiveCamera, Sky, Stars} from '@react-three/drei'
 import React, {useState, useEffect, Suspense}  from 'react'
 import { useSpring } from '@react-spring/core'
+import { CubeTextureLoader } from "three";
 
 import HtmlBox from "../components/HtmlBox";
 import ColorBox from "../components/ColorBox";
 import CodeBox from "../components/CodeBox";
 //import Text3D from "../components/Text3D";
 import Text from "../components/Text";
+import BudaDome from "../components/BudaDome";
+
 
 import slide7left from '../assets/deck2/Slide7-1.png';
 import slide7right from '../assets/deck2/Slide7-2.png';
+
 
 
 function Slides () {
@@ -20,6 +24,10 @@ function Slides () {
   const [index, setIndex] =  useState(0);
   const [color, setColor] =  useState("#88cccc");
   const [zoom, setZoom] =  useState(10);
+  const [background, setBackground] =  useState("day");
+
+
+
 
   const { spring } = useSpring({
     spring: index,
@@ -30,8 +38,28 @@ function Slides () {
   let rotationY= spring.to([0, 1, 2, 3, 4, 5], [rotationValues[0][1] , rotationValues[1][1], rotationValues[2][1], rotationValues[3][1], rotationValues[4][1], rotationValues[5][1]])
   let rotationZ= spring.to([0, 1, 2, 3, 4, 5], [rotationValues[0][2], rotationValues[1][2], rotationValues[2][2], rotationValues[3][2], rotationValues[4][2], rotationValues[5][2]])
 
+
+
+
+
+const  DarkSky = () => {
+  const { scene } = useThree();
+  const loader = new CubeTextureLoader();
+  const texture = loader.load([
+    "/textures/1.jpg",
+    "/textures/2.jpg",
+    "/textures/3.jpg",
+    "/textures/4.jpg",
+    "/textures/5.jpg",
+    "/textures/6.jpg"
+  ]);
+  scene.background = texture;
+  return null;
+}
+  
+  
   const downHandler = ({ key }) => {
-    console.log(key)
+  
     let newIndex ;
     if (key === "ArrowLeft"){
       if (index === 0) {
@@ -39,6 +67,7 @@ function Slides () {
       } else {
       newIndex = index - 1;
       }
+      setIndex(newIndex);
 
     } else if (key === "ArrowRight") {
       if (index === 5) {
@@ -46,8 +75,9 @@ function Slides () {
         } else {
         newIndex = index + 1;
         }
+      setIndex(newIndex);
     }
-    setIndex(newIndex);
+  
   };
 
   useEffect(() => {
@@ -59,11 +89,19 @@ function Slides () {
 
   return (
     <>
-    {/*
+    {
       <div className="controlls">
-        <p className="slideNr">Slide: <span>{index + 1}</span>/6</p>
+        <p className="controlText">cube s(l)ide: <span>{index + 1}</span>/6</p>
+        <div className="controllsBackground">
+        <p className="controlText"> background:</p>
+        <select value={background} onChange={(e) => setBackground(e.target.value)}>
+          <option value="day">Day</option>
+          <option value="night">Night</option>
+          <option value="devine">Devine</option>
+        </select>
+        </div>
       </div>
-      */ }
+       }
      <Canvas>
         <Suspense fallback={null}>
           <PerspectiveCamera position={[0, 0, 7]} makeDefault={true} />
@@ -80,9 +118,25 @@ function Slides () {
           <CodeBox position={[12, -6.6, 0]} color={'blue'} mainText={"mesh"} subText={"(native JSX element)"}/>
           <CodeBox position={[12, -7.5, 0]} color={'blue'} mainText={"boxGeometrie"} subText={""}/>
           <CodeBox position={[12, -8.1, 0]} color={'blue'} mainText={"meshStandardMaterial"} subText={""}/>
-          <Sky scale={1000} sunPosition={[500, 150, -1000]} turbidity={0} />
+          { background === "devine" &&
+              <BudaDome />
+           }
+
+          { background === "night" &&
+              <DarkSky/>
+           }
+
+              { background === "day" &&
+              <>
+        <Sky scale={1000} sunPosition={[500, 150, -1000]} turbidity={0} />
+     
           <Stars radius={50} depth={5}  count={5000}  factor={6}  saturation={0} fade />
+         </>
+           }
+    
+           
           <OrbitControls />
+      
       </Suspense>
     </Canvas>
     </>

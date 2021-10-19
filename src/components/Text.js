@@ -2,7 +2,7 @@ import React, { useRef} from 'react'
 import { useFrame } from '@react-three/fiber'
 import { Html } from '@react-three/drei';
 
-const CodeBox = ({position}) => {
+const Text = ({position}) => {
 
   const ref = useRef()
 
@@ -51,4 +51,4 @@ const CodeBox = ({position}) => {
   )
 }
 
-export default CodeBox
+export default Text
