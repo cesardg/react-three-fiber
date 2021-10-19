@@ -18,7 +18,7 @@ const CodeBox = ({position, color, mainText, subText}) => {
       ref={ref}
       onPointerOver={(e) => setHover(true)}
       onPointerOut={(e) => setHover(false)}>
-      <boxGeometry args={[3, .5, .5]} />
+      <boxGeometry args={[3.6, .5, .5]} />
       <meshStandardMaterial color={hovered ? 'black' : 'blue'} />
       <Html  className="content codeContent"  rotation-z={Math.PI} rotation-y={Math.PI}  rotation-x={Math.PI} position={[0, 0, (.5/2)+ 0.001]} transform occlude>
           <div  className="wrapper codeWrapper">

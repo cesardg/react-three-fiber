@@ -2,6 +2,7 @@ import {Canvas} from '@react-three/fiber'
 import {OrbitControls, PerspectiveCamera, Sky, Stars} from '@react-three/drei'
 import React, {useState, useEffect, Suspense}  from 'react'
 import { useSpring } from '@react-spring/core'
+import { Slider } from '@mui/material';
 
 import HtmlBox from "../components/HtmlBox";
 import ColorBox from "../components/ColorBox";
@@ -10,6 +11,7 @@ import CodeBox from "../components/CodeBox";
 import Text from "../components/Text";
 import BudaDome from "../components/BudaDome";
 import DarkSky from "../components/DarkSky";
+import Water from "../components/Water";
 
 import slide7left from '../assets/deck2/Slide7-1.png';
 import slide7right from '../assets/deck2/Slide7-2.png';
@@ -22,6 +24,7 @@ const  Slides =  () => {
   const [color, setColor] =  useState("#88cccc");
   const [zoom, setZoom] =  useState(10);
   const [background, setBackground] =  useState("day");
+  const [waterLevel, setWaterLevel] =  useState(0);
 
   const { spring } = useSpring({
     spring: index,
@@ -32,12 +35,6 @@ const  Slides =  () => {
   let rotationY= spring.to([0, 1, 2, 3, 4, 5], [rotationValues[0][1] , rotationValues[1][1], rotationValues[2][1], rotationValues[3][1], rotationValues[4][1], rotationValues[5][1]])
   let rotationZ= spring.to([0, 1, 2, 3, 4, 5], [rotationValues[0][2], rotationValues[1][2], rotationValues[2][2], rotationValues[3][2], rotationValues[4][2], rotationValues[5][2]])
 
-
-
-
-
-
-  
   const downHandler = ({ key }) => {
   
     let newIndex ;
@@ -60,6 +57,11 @@ const  Slides =  () => {
   
   };
 
+  const handleChange = (event, newValue) => {
+    console.log(newValue);
+      setWaterLevel(newValue)
+  };
+
   useEffect(() => {
     window.addEventListener("keydown", downHandler);
     return () => {
@@ -78,8 +80,11 @@ const  Slides =  () => {
           <option value="day">Day</option>
           <option value="night">Night</option>
           <option value="devine">Devine</option>
+          <option value="black">Black</option>
+          <option value="">None</option>
         </select>
         </div>
+          <Slider aria-label="Small" valueLabelDisplay="auto" min={0} max={100}  value={waterLevel} onChange={handleChange} />
       </div>
        }
      <Canvas>
@@ -98,23 +103,26 @@ const  Slides =  () => {
           <CodeBox position={[12, -6.6, 0]} color={'blue'} mainText={"mesh"} subText={"(native JSX element)"}/>
           <CodeBox position={[12, -7.5, 0]} color={'blue'} mainText={"boxGeometrie"} subText={""}/>
           <CodeBox position={[12, -8.1, 0]} color={'blue'} mainText={"meshStandardMaterial"} subText={""}/>
-          { background === "devine" &&
-              <BudaDome />
+          <CodeBox position={[12, -9, 0]} color={'blue'} mainText={"ambientLight intensity={0.1}"} subText={""}/>
+          <CodeBox position={[12, -9.6, 0]} color={'blue'} mainText={`directionalLight color="red" position={[0, 0, 5]} `} subText={""}/>
+          {background === "devine" && <BudaDome />}
+          {background === "night" && <DarkSky/>} 
+          {background === "black" && 
+            <>
+             <color attach="background" args={"black"} />
+              <Stars radius={400} depth={20}  count={10000}  factor={20}  saturation={0} fade />
+            </>
+          } 
+          { background === "day" && 
+            <>
+              <Sky scale={1000} sunPosition={[500, 150, -1000]} turbidity={0} />
+              <Stars radius={400} depth={20}  count={10000}  factor={20}  saturation={0} fade />
+            </>
            }
 
-          { background === "night" &&
-              <DarkSky/>
+           { waterLevel > 0 && 
+          <Water waterLevel={waterLevel}/>
            }
-
-              { background === "day" &&
-              <>
-        <Sky scale={1000} sunPosition={[500, 150, -1000]} turbidity={0} />
-     
-          <Stars radius={50} depth={5}  count={5000}  factor={6}  saturation={0} fade />
-         </>
-           }
-    
-           
           <OrbitControls />
       
       </Suspense>
