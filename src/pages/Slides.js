@@ -1,8 +1,7 @@
-import {Canvas, useThree} from '@react-three/fiber'
+import {Canvas} from '@react-three/fiber'
 import {OrbitControls, PerspectiveCamera, Sky, Stars} from '@react-three/drei'
 import React, {useState, useEffect, Suspense}  from 'react'
 import { useSpring } from '@react-spring/core'
-import { CubeTextureLoader } from "three";
 
 import HtmlBox from "../components/HtmlBox";
 import ColorBox from "../components/ColorBox";
@@ -10,24 +9,19 @@ import CodeBox from "../components/CodeBox";
 //import Text3D from "../components/Text3D";
 import Text from "../components/Text";
 import BudaDome from "../components/BudaDome";
-
+import DarkSky from "../components/DarkSky";
 
 import slide7left from '../assets/deck2/Slide7-1.png';
 import slide7right from '../assets/deck2/Slide7-2.png';
 
 
-
-function Slides () {
-
+const  Slides =  () => {
   const Pi = Math.PI/180;
   const rotationValues  = [[Pi*90,0, 0], [Pi*90, 0, Pi*90], [Pi*90, 0, Pi*180] ,[Pi*90, 0, Pi*270] , [Pi*180,0,Pi*90] , [0,0, Pi * -90] ];
   const [index, setIndex] =  useState(0);
   const [color, setColor] =  useState("#88cccc");
   const [zoom, setZoom] =  useState(10);
   const [background, setBackground] =  useState("day");
-
-
-
 
   const { spring } = useSpring({
     spring: index,
@@ -42,21 +36,7 @@ function Slides () {
 
 
 
-const  DarkSky = () => {
-  const { scene } = useThree();
-  const loader = new CubeTextureLoader();
-  const texture = loader.load([
-    "/textures/1.jpg",
-    "/textures/2.jpg",
-    "/textures/3.jpg",
-    "/textures/4.jpg",
-    "/textures/5.jpg",
-    "/textures/6.jpg"
-  ]);
-  scene.background = texture;
-  return null;
-}
-  
+
   
   const downHandler = ({ key }) => {
   

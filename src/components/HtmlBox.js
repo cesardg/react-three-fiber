@@ -13,7 +13,6 @@ import slide6 from '../assets/deck1/Slide6.png';
 const HtmlBox = ({position, rotationy, rotationx, rotationz, color, onChangeColor, onChangeSlider, zoom}) => {
 
     const handleChange = (event, newValue) => {
-      console.log(newValue)
       onChangeSlider(newValue)
   };
 
