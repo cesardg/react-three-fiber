@@ -1,14 +1,13 @@
-// TEST NIET GEBRUIKT IN PRESENTATIE
+
 
 import {Canvas} from '@react-three/fiber'
 import Box from "../components/Box";
 import Circle from "../components/Circle";
 import Torus from "../components/Torus";
-import {OrbitControls} from '@react-three/drei'
+import {DeviceOrientationControls} from '@react-three/drei'
 
 
-
-function FirstDemo() {
+function Mobile() {
   return (
      <Canvas>
       <ambientLight intensity={0.5} />
@@ -18,12 +17,11 @@ function FirstDemo() {
       <Box position={[-2, 0, 0]} />
       <Circle position={[0, 0, 0]}/>
       <Torus position={[2, 0, 0]}/>
-      <OrbitControls />
+      <DeviceOrientationControls />
     </Canvas>
   );
 }
 
-export default FirstDemo;
+export default Mobile;
 
-// TEST NIET GEBRUIKT IN PRESENTATIE
 

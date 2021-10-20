@@ -91,10 +91,10 @@ const  Slides =  () => {
         <p className={styles.controlText}> background:</p>
         <select value={background} onChange={(e) => setBackground(e.target.value)}>
           <option value="day">Day</option>
-          <option value="night">Night</option>
+          <option value="night">Space</option>
           <option value="devine">Devine</option>
           <option value="black">Black</option>
-          <option value="sunset">Sunset</option>
+          <option value="studio">Studio</option>
           <option value="">None</option>
         </select>
         </div>
@@ -124,7 +124,7 @@ const  Slides =  () => {
           <CustomModel position={[30, -2, 0]} />
           {background === "devine" && <BudaDome />}
           {background === "night" && <DarkSky/>} 
-          {background === "sunset" &&  <Environment preset={background} background />} 
+          {background === "studio" &&  <Environment preset={background} background />} 
           {background === "black" && 
             <>
              <color attach="background" args={"black"} />

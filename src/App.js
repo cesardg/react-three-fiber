@@ -3,7 +3,7 @@ import './styles/App.css';
 
 import {Switch, Route} from "react-router-dom";
 
-import FirstDemo from "./pages/FirstDemo";
+import Mobile from "./pages/Mobile";
 import Simple from "./pages/Simple";
 import Slides from './pages/Slides';
 
@@ -14,8 +14,8 @@ function App() {
         <Route exact path = "/simple">
          <Simple />
         </Route>
-        <Route exact path = "/first-demo">
-         <FirstDemo />
+        <Route exact path = "/mobile">
+         <Mobile />
         </Route>
         <Route exact path = "/">
           <Slides />
