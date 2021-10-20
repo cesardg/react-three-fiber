@@ -97,10 +97,10 @@ const  Slides =  () => {
           <pointLight position={[-10, -10, -10]} />
           <pointLight position={[20, 0, 20]} intensity={0.6}  />
           <HtmlBox position={[0, 0, 0]}  rotationy={rotationY}  rotationx={rotationX}  rotationz={rotationZ}  color={color} onChangeColor={(value) => setColor(value)} zoom={zoom} onChangeSlider={(value) => setZoom(value)} />
-          <ColorBox position={[10, 0, 0]} img={slide7right} color={'red'}/>
+          <ColorBox position={[10, 0, 0]} img={slide7right} color={'red'}  link={"http://127.0.0.1:5500/index.html"}/>
          {/* <Text3D position={[0, 0, 0]} texture={"lava"}/>*/ }
           <Text position={[12, 0, 0]}/>
-          <ColorBox position={[14, 0, 0]} img={slide7left} color={'green'}/>
+          <ColorBox position={[14, 0, 0]} img={slide7left} color={'green'} link={"/simple"}/>
           <CodeBox position={[12, -6, 0]} color={'blue'} mainText={"Canvas"} subText={"(component)"}/>
           <CodeBox position={[12, -6.6, 0]} color={'blue'} mainText={"mesh"} subText={"(native JSX element)"}/>
           <CodeBox position={[12, -7.5, 0]} color={'blue'} mainText={"boxGeometrie"} subText={""}/>

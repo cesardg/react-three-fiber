@@ -8,8 +8,6 @@ extend({ Water})
 
 const WaterSurface = ({waterLevel}) => {
 
-console.log(waterLevel);
-
 
  const ref = useRef()
   const gl = useThree((state) => state.gl)

@@ -10,6 +10,7 @@ const  Simple = () => {
       <ambientLight intensity={1} />
       <SimpleBox position={[0, 0, 0]} />
       <color attach="background" args={"black"} />
+
     </Canvas>
   );
 }

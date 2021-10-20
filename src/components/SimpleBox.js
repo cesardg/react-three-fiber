@@ -2,6 +2,7 @@ import React, { useRef} from 'react'
 import { useFrame } from '@react-three/fiber'
 
 
+
 const SimpleBox = (position) => {
 
   const ref = useRef()
