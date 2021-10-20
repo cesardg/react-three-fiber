@@ -111,7 +111,7 @@ const  Slides =  () => {
           <pointLight position={[-10, -10, -10]} />
           <pointLight position={[20, 0, 20]} intensity={0.6}  />
           <HtmlBox position={[0, 0, 0]}  rotationy={rotationY}  rotationx={rotationX}  rotationz={rotationZ}  color={color} onChangeColor={(value) => setColor(value)} zoom={zoom} onChangeSlider={(value) => setZoom(value)} />
-          <ColorBox position={[10, 0, 0]} img={slide7right} color={'red'}  link={"http://127.0.0.1:5500/index.html"}/>
+          <ColorBox position={[10, 0, 0]} img={slide7right} color={'red'}  link={"https://capita-selecta-three-vanilla-js.netlify.app/"}/>
          {/* <Text3D position={[0, 0, 0]} texture={"lava"}/>*/ }
           <Text position={[12, 0, 0]}/>
           <ColorBox position={[14, 0, 0]} img={slide7left} color={'green'} link={"/simple"}/>
