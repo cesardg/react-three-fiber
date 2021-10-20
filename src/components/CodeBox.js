@@ -2,6 +2,8 @@ import React, { useRef, useState } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { Html } from '@react-three/drei';
 
+import styles from "../styles/Slides.module.css";
+
 const CodeBox = ({position, color, mainText, subText}) => {
 
   const ref = useRef()
@@ -20,8 +22,8 @@ const CodeBox = ({position, color, mainText, subText}) => {
       onPointerOut={(e) => setHover(false)}>
       <boxGeometry args={[3.6, .5, .5]} />
       <meshStandardMaterial color={hovered ? 'black' : 'blue'} />
-      <Html  className="content codeContent"  rotation-z={Math.PI} rotation-y={Math.PI}  rotation-x={Math.PI} position={[0, 0, (.5/2)+ 0.001]} transform occlude>
-          <div  className="wrapper codeWrapper">
+      <Html className={styles.codeContent}  rotation-z={Math.PI} rotation-y={Math.PI}  rotation-x={Math.PI} position={[0, 0, (.5/2)+ 0.001]} transform occlude>
+          <div  className={styles.codeWrapper}>
            
     <p>{`< ${mainText}/>`}<span>{subText}</span></p>
           </div>

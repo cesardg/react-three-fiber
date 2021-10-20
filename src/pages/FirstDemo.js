@@ -1,9 +1,11 @@
+// TEST NIET GEBRUIKT IN PRESENTATIE
 
 import {Canvas} from '@react-three/fiber'
 import Box from "../components/Box";
 import Circle from "../components/Circle";
 import Torus from "../components/Torus";
 import {OrbitControls} from '@react-three/drei'
+
 
 
 function FirstDemo() {
@@ -22,4 +24,6 @@ function FirstDemo() {
 }
 
 export default FirstDemo;
+
+// TEST NIET GEBRUIKT IN PRESENTATIE
 

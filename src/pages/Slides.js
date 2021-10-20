@@ -15,6 +15,8 @@ import CustomModel from "../components/CustomModel";
 import Loader from "../components/Loader";
 //import Text3D from "../components/Text3D";
 
+import styles from "../styles/Slides.module.css";
+
 import slide7left from '../assets/deck2/Slide7-1.png';
 import slide7right from '../assets/deck2/Slide7-2.png';
 
@@ -83,10 +85,10 @@ const  Slides =  () => {
   return (
     <>
 
-      <div className="controlls">
-        <p className="controlText">cube s(l)ide: <span>{index + 1}</span>/6</p>
-        <div className="controllsBackground">
-        <p className="controlText"> background:</p>
+      <div className={styles.controlls}>
+        <p className={styles.controlText}>cube s(l)ide: <span>{index + 1}</span>/6</p>
+        <div className={styles.controllsBackground}>
+        <p className={styles.controlText}> background:</p>
         <select value={background} onChange={(e) => setBackground(e.target.value)}>
           <option value="day">Day</option>
           <option value="night">Night</option>
@@ -122,7 +124,7 @@ const  Slides =  () => {
           <CustomModel position={[30, -2, 0]} />
           {background === "devine" && <BudaDome />}
           {background === "night" && <DarkSky/>} 
-          {background === "sunset" &&  <Environment preset="sunset" background />} 
+          {background === "sunset" &&  <Environment preset={background} background />} 
           {background === "black" && 
             <>
              <color attach="background" args={"black"} />
