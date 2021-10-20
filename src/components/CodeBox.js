@@ -1,33 +1,30 @@
-import React, { useRef, useState } from 'react'
-import { useFrame } from '@react-three/fiber'
+import React from 'react'
 import { Html } from '@react-three/drei';
 
 import styles from "../styles/Slides.module.css";
 
 const CodeBox = ({position, color, mainText, subText}) => {
 
-  const ref = useRef()
-  const [hovered, setHover] = useState(false)
 
-  
-  
-  useFrame(() => {
-    //ref.current.rotation.x = ref.current.rotation.y += 0.01
-  })
   return (
-    <mesh
-      position={position}
-      ref={ref}
-      onPointerOver={(e) => setHover(true)}
-      onPointerOut={(e) => setHover(false)}>
+    <mesh position={position} >
       <boxGeometry args={[3.6, .5, .5]} />
-      <meshStandardMaterial color={hovered ? 'black' : 'blue'} />
-      <Html className={styles.codeContent}  rotation-z={Math.PI} rotation-y={Math.PI}  rotation-x={Math.PI} position={[0, 0, (.5/2)+ 0.001]} transform occlude>
-          <div  className={styles.codeWrapper}>
-           
-    <p>{`< ${mainText}/>`}<span>{subText}</span></p>
+      <meshStandardMaterial color={color} />
+      <mesh>
+      <Html   
+              className={styles.codeContent}  
+              rotation-z={Math.PI} 
+              rotation-y={Math.PI}  
+              rotation-x={Math.PI} 
+              position={[0, 0, (.5/2)+ 0.001]} 
+              transform 
+              occlude>
+            <div  className={styles.codeWrapper}>
+              <p>{`< ${mainText}/>`}<span>{subText}</span>
+            </p>
           </div>
         </Html>
+        </mesh>
     </mesh>
   )
 }

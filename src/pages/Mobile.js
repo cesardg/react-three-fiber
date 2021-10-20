@@ -1,14 +1,14 @@
-
-
 import {Canvas} from '@react-three/fiber'
 import Box from "../components/Box";
 import Circle from "../components/Circle";
 import Torus from "../components/Torus";
 import {DeviceOrientationControls} from '@react-three/drei'
 
+const  Mobile = () => {
 
-function Mobile() {
+
   return (
+ 
      <Canvas>
       <ambientLight intensity={0.5} />
       <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
@@ -19,9 +19,8 @@ function Mobile() {
       <Torus position={[2, 0, 0]}/>
       <DeviceOrientationControls />
     </Canvas>
+
   );
 }
 
 export default Mobile;
-
-
