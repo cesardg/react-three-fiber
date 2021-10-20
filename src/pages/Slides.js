@@ -1,5 +1,5 @@
 import {Canvas} from '@react-three/fiber'
-import {OrbitControls, PerspectiveCamera, Sky, Stars} from '@react-three/drei'
+import {Environment, OrbitControls, PerspectiveCamera, Sky, Stars} from '@react-three/drei'
 import React, {useState, useEffect, Suspense}  from 'react'
 import { useSpring } from '@react-spring/core'
 import { Slider } from '@mui/material';
@@ -7,11 +7,13 @@ import { Slider } from '@mui/material';
 import HtmlBox from "../components/HtmlBox";
 import ColorBox from "../components/ColorBox";
 import CodeBox from "../components/CodeBox";
-//import Text3D from "../components/Text3D";
 import Text from "../components/Text";
 import BudaDome from "../components/BudaDome";
 import DarkSky from "../components/DarkSky";
 import Water from "../components/Water";
+import CustomModel from "../components/CustomModel";
+import Loader from "../components/Loader";
+//import Text3D from "../components/Text3D";
 
 import slide7left from '../assets/deck2/Slide7-1.png';
 import slide7right from '../assets/deck2/Slide7-2.png';
@@ -25,6 +27,7 @@ const  Slides =  () => {
   const [zoom, setZoom] =  useState(10);
   const [background, setBackground] =  useState("day");
   const [waterLevel, setWaterLevel] =  useState(0);
+  const [camPos, setCamPos] =  useState([0, 0, 7]);
 
   const { spring } = useSpring({
     spring: index,
@@ -54,7 +57,15 @@ const  Slides =  () => {
         }
       setIndex(newIndex);
     }
-  
+
+    if (key === "1"){
+      setCamPos([0,0,7])
+    }
+
+    if (key === "2"){
+      setCamPos([0,0,30])
+    }
+
   };
 
   const handleChange = (event, newValue) => {
@@ -81,6 +92,7 @@ const  Slides =  () => {
           <option value="night">Night</option>
           <option value="devine">Devine</option>
           <option value="black">Black</option>
+          <option value="sunset">Sunset</option>
           <option value="">None</option>
         </select>
         </div>
@@ -90,8 +102,8 @@ const  Slides =  () => {
         </div>
        
      <Canvas>
-        <Suspense fallback={null}>
-          <PerspectiveCamera position={[0, 0, 7]} makeDefault={true} />
+        <Suspense fallback={<Loader/>}>
+          <PerspectiveCamera position={camPos} makeDefault={true} />
           <ambientLight intensity={0.5} />
           <spotLight position={[zoom, zoom, 10]} angle={0.15} penumbra={1} />
           <pointLight position={[-10, -10, -10]} />
@@ -101,14 +113,16 @@ const  Slides =  () => {
          {/* <Text3D position={[0, 0, 0]} texture={"lava"}/>*/ }
           <Text position={[12, 0, 0]}/>
           <ColorBox position={[14, 0, 0]} img={slide7left} color={'green'} link={"/simple"}/>
-          <CodeBox position={[12, -6, 0]} color={'blue'} mainText={"Canvas"} subText={"(component)"}/>
-          <CodeBox position={[12, -6.6, 0]} color={'blue'} mainText={"mesh"} subText={"(native JSX element)"}/>
-          <CodeBox position={[12, -7.5, 0]} color={'blue'} mainText={"boxGeometrie"} subText={""}/>
-          <CodeBox position={[12, -8.1, 0]} color={'blue'} mainText={"meshStandardMaterial"} subText={""}/>
-          <CodeBox position={[12, -9, 0]} color={'blue'} mainText={"ambientLight intensity={0.1}"} subText={""}/>
-          <CodeBox position={[12, -9.6, 0]} color={'blue'} mainText={`directionalLight color="red" position={[0, 0, 5]} `} subText={""}/>
+          <CodeBox position={[23, 1.4, 0]} color={'blue'} mainText={"Canvas"} subText={"(component)"}/>
+          <CodeBox position={[23, .8, 0]} color={'blue'} mainText={"mesh"} subText={"(native JSX element)"}/>
+          <CodeBox position={[23, 0, 0]} color={'blue'} mainText={"boxGeometrie"} subText={""}/>
+          <CodeBox position={[23, -.6, 0]} color={'blue'} mainText={"meshStandardMaterial"} subText={""}/>
+          <CodeBox position={[23, -1.4, 0]} color={'blue'} mainText={"ambientLight intensity={0.1}"} subText={""}/>
+          <CodeBox position={[23, -2, 0]} color={'blue'} mainText={`directionalLight color="red" position={[0, 0, 5]} `} subText={""}/>
+          <CustomModel position={[30, -2, 0]} />
           {background === "devine" && <BudaDome />}
           {background === "night" && <DarkSky/>} 
+          {background === "sunset" &&  <Environment preset="sunset" background />} 
           {background === "black" && 
             <>
              <color attach="background" args={"black"} />
