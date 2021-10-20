@@ -71,7 +71,7 @@ const  Slides =  () => {
 
   return (
     <>
-    {
+
       <div className="controlls">
         <p className="controlText">cube s(l)ide: <span>{index + 1}</span>/6</p>
         <div className="controllsBackground">
@@ -84,9 +84,11 @@ const  Slides =  () => {
           <option value="">None</option>
         </select>
         </div>
-          <Slider aria-label="Small" valueLabelDisplay="auto" min={0} max={100}  value={waterLevel} onChange={handleChange} />
-      </div>
-       }
+        { background !== "black" && 
+        <Slider aria-label="Small" valueLabelDisplay="auto" min={0} max={100}  value={waterLevel} onChange={handleChange} />
+        }
+        </div>
+       
      <Canvas>
         <Suspense fallback={null}>
           <PerspectiveCamera position={[0, 0, 7]} makeDefault={true} />
@@ -132,6 +134,3 @@ const  Slides =  () => {
 }
 
 export default Slides;
-
-
-
